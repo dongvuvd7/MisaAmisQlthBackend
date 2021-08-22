@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MISA.AMIS.API",
+    "\\MISA.AMIS.API\\Controllers",
+    "\\MISA.AMIS.API\\MiddleWare",
+    "\\MISA.AMIS.CORE",
+    "\\MISA.AMIS.CORE\\Entities",
+    "\\MISA.AMIS.CORE\\Enums",
+    "\\MISA.AMIS.CORE\\Exceptions",
+    "\\MISA.AMIS.CORE\\Interfaces",
+    "\\MISA.AMIS.CORE\\Interfaces\\Services"
+  ],
+  "SelectedNode": "\\MISA.AMIS.API\\Controllers\\EmployeeController.cs",
+  "PreviewInSolutionExplorer": false
+}
