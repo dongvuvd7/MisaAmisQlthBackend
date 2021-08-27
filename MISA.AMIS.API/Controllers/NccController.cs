@@ -78,6 +78,15 @@ namespace MISA.AMIS.API.Controllers
             else return NoContent();
         }
 
+        [HttpGet("GetNccByNccCode/{nccCode}")]
+        public IActionResult GetNccByNccCode(string nccCode)
+        {
+            var response = _nccServices.GetNccByNccCode(nccCode);
+            if (response != null) return Ok(response);
+            else return NoContent();
+        }
+
+
 
 
     }

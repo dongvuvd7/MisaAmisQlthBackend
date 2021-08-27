@@ -105,5 +105,17 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
                 return response;
             }
         }
+
+        public Ncc GetNccByNccCode(string nccCode)
+        {
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                var sqlCommand = "Proc_GetNccByNccCode";
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@NccCode", nccCode);
+                var response = dbConnection.QueryFirstOrDefault<Ncc>(sqlCommand, param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return response;
+            }
+        }
     }
 }

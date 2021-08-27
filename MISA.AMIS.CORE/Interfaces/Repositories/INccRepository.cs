@@ -17,6 +17,6 @@ namespace MISA.AMIS.CORE.Interfaces.Repositories
         public string GetMaxCode();
         public IEnumerable<Ncc> GetNccs(int pageSize, int pageIndex, string filter);
         public int GetTotalNccs(string filter);
-
+        public Ncc GetNccByNccCode(string nccCode);
     }
 }

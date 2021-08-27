@@ -1,4 +1,5 @@
 ﻿using MISA.AMIS.CORE.Entities;
+using MISA.AMIS.CORE.Enums;
 using MISA.AMIS.CORE.Interfaces.Repositories;
 using MISA.AMIS.CORE.Interfaces.Services;
 using System;

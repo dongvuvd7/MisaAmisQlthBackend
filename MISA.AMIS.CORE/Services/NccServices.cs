@@ -66,6 +66,12 @@ namespace MISA.AMIS.CORE.Services
             return responses;
         }
 
+        public Ncc GetNccByNccCode(string nccCode)
+        {
+            var response = _nccRepository.GetNccByNccCode(nccCode);
+            return response;
+        }
+
         protected override void CustomValidate(Ncc entity, HttpType http)
         {
             if (entity is Ncc)
