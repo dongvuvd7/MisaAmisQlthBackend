@@ -50,7 +50,7 @@ namespace MISA.AMIS.CORE.Services
         /// <param name="entityId"></param>
         /// <returns>Bản ghi tương ứng với Id</returns>
         /// CreatedBy: VDDong (08/06/2021)
-        public MISAEntity GetEmployeeById(Guid entityId)
+        public MISAEntity GetById(Guid entityId)
         {
             var response = _dataAccessBaseRepository.GetById(entityId);
             return response;

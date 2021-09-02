@@ -21,7 +21,7 @@ namespace MISA.AMIS.CORE.Interfaces.Services
         /// <param name="entityId"></param>
         /// <returns>Bản ghi tương ứng với Id</returns>
         /// CreatedBy: VDDong (08/07/2021)
-        public MISAEntity GetEmployeeById(Guid entityId);
+        public MISAEntity GetById(Guid entityId);
 
         /// <summary>
         /// Insert 1 bản ghi vào database

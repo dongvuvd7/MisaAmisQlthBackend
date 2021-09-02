@@ -46,7 +46,7 @@ namespace MISA.AMIS.API.Controllers
         [HttpGet("{entityId}")]
         public IActionResult GetEmployeeById(Guid entityId)
         {
-            var entity = _dataAccessBaseServices.GetEmployeeById(entityId);
+            var entity = _dataAccessBaseServices.GetById(entityId);
             if (entity != null) return Ok(entity);
             else return NoContent();
         }
