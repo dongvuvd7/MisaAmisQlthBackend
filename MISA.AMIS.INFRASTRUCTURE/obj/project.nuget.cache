@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zyOFnZkSXkmu8v7i7OaCp1KxaRJjiKR19jlNY78x2dK8xSwW40pIqsYZSomnWarVh00BVQOofhqrL56VYbioUw==",
+  "dgSpecHash": "BxhSRDegdNmyJNiwTJ6KGFp6badO7Wg2Bu6iA7560vivReMjmdyz8GYCQzxsQUQ3+M1ov8CNN6Wha3rTqQjgfA==",
   "success": true,
-  "projectFilePath": "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\MISA.AMIS.INFRASTRUCTURE.csproj",
+  "projectFilePath": "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\MISA.AMIS.INFRASTRUCTURE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LEGION\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\LEGION\\.nuget\\packages\\epplus\\5.7.1\\epplus.5.7.1.nupkg.sha512",

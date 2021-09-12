@@ -20,10 +20,9 @@ namespace MISA.AMIS.API.Controllers
         }
 
         /// <summary>
-        /// Lấy một bản ghi từ database theo id
+        /// Lấy tất cả các bản ghi từ database
         /// </summary>
-        /// <param name="entityId"></param>
-        /// <returns>Bản ghi tương ứng</returns>
+        /// <returns>Tất cả các bản ghi</returns>
         /// <response code="200">có dữ liệu trả về -> lấy thành công</response>
         /// <response code="204">không có dữ liệu trả về -> lấy thất bại</response>
         /// CreatedBy: VDDong (09/06/2021)
@@ -44,7 +43,7 @@ namespace MISA.AMIS.API.Controllers
         /// <response code="204">không có dữ liệu trả về -> lấy thất bại</response>
         /// CreatedBy: VDDong (09/06/2021)
         [HttpGet("{entityId}")]
-        public IActionResult GetEmployeeById(Guid entityId)
+        public IActionResult GetById(Guid entityId)
         {
             var entity = _dataAccessBaseServices.GetById(entityId);
             if (entity != null) return Ok(entity);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "39RwZruSIWo5S7xO0YgX+RmUvsOOAW94gxBKPA/BXj0TDYNyp9JyKm/A4DJ45goo/g4KAQUc8YqS6S4IU2Q4Hw==",
+  "dgSpecHash": "1WN8nt/qzg5V66gFVJs1CTVCXZivkUmGE+4GNjHzOepR0uxrwonSot/hzMyYmRpvbsd9PNIiSgVruLOFLO17/w==",
   "success": true,
-  "projectFilePath": "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj",
+  "projectFilePath": "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LEGION\\.nuget\\packages\\epplus\\5.7.1\\epplus.5.7.1.nupkg.sha512",
     "C:\\Users\\LEGION\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\MISA.AMIS.INFRASTRUCTURE.csproj": {}
+    "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\MISA.AMIS.INFRASTRUCTURE.csproj": {}
   },
   "projects": {
-    "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj": {
+    "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj",
+        "projectUniqueName": "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj",
         "projectName": "MISA.AMIS.CORE",
-        "projectPath": "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj",
+        "projectPath": "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj",
         "packagesPath": "C:\\Users\\LEGION\\.nuget\\packages\\",
-        "outputPath": "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\obj\\",
+        "outputPath": "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,14 +68,14 @@
         }
       }
     },
-    "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\MISA.AMIS.INFRASTRUCTURE.csproj": {
+    "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\MISA.AMIS.INFRASTRUCTURE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\MISA.AMIS.INFRASTRUCTURE.csproj",
+        "projectUniqueName": "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\MISA.AMIS.INFRASTRUCTURE.csproj",
         "projectName": "MISA.AMIS.INFRASTRUCTURE",
-        "projectPath": "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\MISA.AMIS.INFRASTRUCTURE.csproj",
+        "projectPath": "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\MISA.AMIS.INFRASTRUCTURE.csproj",
         "packagesPath": "C:\\Users\\LEGION\\.nuget\\packages\\",
-        "outputPath": "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\obj\\",
+        "outputPath": "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.INFRASTRUCTURE\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -96,8 +96,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj": {
-                "projectPath": "D:\\MisaWorking\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj"
+              "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj": {
+                "projectPath": "D:\\MisaWorking\\MISA.AMIS.NEWEST\\MISA.AMIS.Backend2\\MISA.AMIS.CORE\\MISA.AMIS.CORE.csproj"
               }
             }
           }

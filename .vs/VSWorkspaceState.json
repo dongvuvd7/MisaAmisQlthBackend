@@ -11,6 +11,6 @@
     "\\MISA.AMIS.CORE\\Interfaces",
     "\\MISA.AMIS.CORE\\Interfaces\\Services"
   ],
-  "SelectedNode": "\\MISA.AMIS.API\\Controllers\\EmployeeController.cs",
+  "SelectedNode": "\\MISA.AMIS.API\\Controllers\\BaseController.cs",
   "PreviewInSolutionExplorer": false
 }
