@@ -86,7 +86,21 @@ namespace MISA.AMIS.API.Controllers
             else return NoContent();
         }
 
+        /// <summary>
+        /// Xuất dữ liệu ncc ra file excel
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns>file excel</returns>
+        /// CreatedBy: VDDong (09/06/2021)
+        [HttpGet("Export")]
+        public IActionResult Export()
+        {
+            var stream = _nccServices.ExportExcel();
+            string excelName = $"NCC_Data(ExportByVVDong).xlsx";
+            //return File(stream, "application/octet-stream", excelName);
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
 
+        }
 
 
     }
