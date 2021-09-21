@@ -26,3 +26,17 @@ D:\MisaWorking\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE
 D:\MisaWorking\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.dll
 D:\MisaWorking\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\ref\MISA.AMIS.CORE.dll
 D:\MisaWorking\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.pdb
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\bin\Debug\net5.0\MISA.AMIS.CORE.deps.json
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\bin\Debug\net5.0\MISA.AMIS.CORE.dll
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\bin\Debug\net5.0\ref\MISA.AMIS.CORE.dll
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\bin\Debug\net5.0\MISA.AMIS.CORE.pdb
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.csproj.AssemblyReference.cache
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.Properties.Resources.resources
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.csproj.GenerateResource.cache
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.GeneratedMSBuildEditorConfig.editorconfig
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.AssemblyInfoInputs.cache
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.AssemblyInfo.cs
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.csproj.CoreCompileInputs.cache
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.dll
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\ref\MISA.AMIS.CORE.dll
+D:\MisaWorking\MISA.AMIS.NEWEST\MISA.AMIS.Backend2\MISA.AMIS.CORE\obj\Debug\net5.0\MISA.AMIS.CORE.pdb

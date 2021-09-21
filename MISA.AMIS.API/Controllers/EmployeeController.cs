@@ -94,6 +94,21 @@ namespace MISA.AMIS.API.Controllers
             else return NoContent();
         }
 
+        /// <summary>
+        /// Xuất dữ liệu employee ra file excel
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns>file excel</returns>
+        /// CreatedBy: VDDong (09/06/2021)
+        [HttpGet("Export")]
+        public IActionResult Export()
+        {
+            var stream = _employeeServices.ExportExcel();
+            string excelName = $"{Properties.Resources.ExcelFileName}(ExportByVVDong).xlsx";
+            //return File(stream, "application/octet-stream", excelName);
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+
+        }
 
 
     }
