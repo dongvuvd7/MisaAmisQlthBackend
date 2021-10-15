@@ -15,8 +15,8 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         protected string connectionString = "" +
             "Host = 47.241.69.179; " +
             "Port = 3306; " +
-            "Database = 15B_MS238_Amis_VDDong; " +
-            "User Id = dev; " +
+            "Database = MISAAMIS_MF975_VDD; " +
+            "User Id = nvmanh; " +
             "Password = 12345678; " +
             "Convert Zero Datetime = True;";
 
