@@ -100,6 +100,46 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         }
 
         /// <summary>
+        /// Lấy danh sách nhân viên theo 2 cách:
+        /// 1. Sắp xếp theo code (theo thứ tự thêm mới)
+        /// 2. Sắp xếp theo tên (thứ tự anphabe)
+        /// Kết hợp với nhóm theo phòng ban (đơn vị)
+        /// </summary>
+        /// <param name="pageSize">số bản ghi / trang</param>
+        /// <param name="pageIndex">số trang</param>
+        /// <param name="departmentString">điều kiện để nhóm phòng ban</param>
+        /// <returns></returns>
+        public IEnumerable<Employee> GetEmployeesSortByCode(int pageSize, int pageIndex, string departmentString)
+        {
+            if (departmentString == null) departmentString = "";
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                var sqlCommand = "Proc_GetEmployeesSortByCode";
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@pageSize", pageSize);
+                dynamicParameters.Add("@pageIndex", pageIndex);
+                dynamicParameters.Add("@departmentId", departmentString);
+                var responses = dbConnection.Query<Employee>(sqlCommand, param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return responses;
+            }
+        }
+        public IEnumerable<Employee> GetEmployeesSortByName(int pageSize, int pageIndex, string departmentString)
+        {
+            if (departmentString == null) departmentString = "";
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                var sqlCommand = "Proc_GetEmployeesSortByName";
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@pageSize", pageSize);
+                dynamicParameters.Add("@pageIndex", pageIndex);
+                dynamicParameters.Add("@departmentId", departmentString);
+                var responses = dbConnection.Query<Employee>(sqlCommand, param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return responses;
+            }
+        }
+
+
+        /// <summary>
         /// Lấy mã nhân viên lớn nhất
         /// </summary>
         /// <returns>mã nhân viên lớn nhất</returns>
@@ -149,6 +189,25 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
 
                 var response = dbConnection.QueryFirstOrDefault<int>(sqlCommand, param: dynamicParameters, commandType: CommandType.StoredProcedure);
                 return response;
+            }
+        }
+
+        /// <summary>
+        /// Lấy tổng số bản ghi theo điều kiện (sắp xếp và nhóm phòng ban(đơn vị))
+        /// Phục vụ việc làm totalRecord cho phân trang khi sắp xếp và nhóm phòng ban
+        /// </summary>
+        /// <param name="departmentString"></param>
+        /// <returns>Số bản ghi (int) theo điều kiện</returns>
+        public int GetTotalEmployeesSortBy(string departmentString)
+        {
+            if (departmentString == null) departmentString = "";
+            using(dbConnection = new MySqlConnection(connectionString))
+            {
+                var sqlCommand = "Proc_GetTotalEmployeeSortBy";
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@departmentId", departmentString);
+                var responses = dbConnection.QueryFirstOrDefault<int>(sqlCommand, param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return responses;
             }
         }
     }

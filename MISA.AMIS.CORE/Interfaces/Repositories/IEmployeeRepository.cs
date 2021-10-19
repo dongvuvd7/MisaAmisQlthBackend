@@ -68,5 +68,27 @@ namespace MISA.AMIS.CORE.Interfaces.Repositories
         /// <returns>Số lương (int) nhân viên</returns>
         /// CreatedBy: VDDong (08/07/2021)
         public int GetTotalEmployees(string filter);
+
+        /// <summary>
+        /// Lấy danh sách nhân viên theo 2 cách:
+        /// 1. Sắp xếp theo code (theo thứ tự thêm mới)
+        /// 2. Sắp xếp theo tên (thứ tự anphabe)
+        /// Kết hợp với nhóm theo phòng ban (đơn vị)
+        /// </summary>
+        /// <param name="pageSize">số bản ghi / trang</param>
+        /// <param name="pageIndex">số trang</param>
+        /// <param name="departmentString">điều kiện để nhóm phòng ban</param>
+        /// <returns>Danh sách bản ghi tương ứng</returns>
+        public IEnumerable<Employee> GetEmployeesSortByCode(int pageSize, int pageIndex, string departmentString);
+        public IEnumerable<Employee> GetEmployeesSortByName(int pageSize, int pageIndex, string departmentString);
+
+        /// <summary>
+        /// Lấy tổng số bản ghi theo điều kiện (sắp xếp và nhóm phòng ban(đơn vị))
+        /// Phục vụ việc làm totalRecord cho phân trang khi sắp xếp và nhóm phòng ban
+        /// </summary>
+        /// <param name="departmentString"></param>
+        /// <returns>Số bản ghi (int) theo điều kiện</returns>
+        public int GetTotalEmployeesSortBy(string departmentString);
+
     }
 }

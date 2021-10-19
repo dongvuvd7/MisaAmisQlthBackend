@@ -154,6 +154,36 @@ namespace MISA.AMIS.CORE.Services
         }
 
         /// <summary>
+        /// Lấy danh sách nhân viên theo 2 cách:
+        /// 1. Sắp xếp theo code (theo thứ tự thêm mới)
+        /// 2. Sắp xếp theo tên (thứ tự anphabe)
+        /// Kết hợp với nhóm theo phòng ban (đơn vị)
+        /// </summary>
+        /// <param name="pageSize">số bản ghi / trang</param>
+        /// <param name="pageIndex">số trang</param>
+        /// <param name="departmentString">điều kiện để nhóm phòng ban</param>
+        /// <returns></returns>
+        public IEnumerable<Employee> GetEmployeesSortByCode(int pageSize, int pageIndex, string departmentString)
+        {
+            if(pageSize <= 0 || pageIndex <= 0)
+            {
+                throw new EmployeeException(Properties.Resources.Invalid_Paging_number);
+            }
+            var responses = _employeeRepository.GetEmployeesSortByCode(pageSize, pageIndex, departmentString);
+            return responses;
+        }
+
+        public IEnumerable<Employee> GetEmployeesSortByName(int pageSize, int pageIndex, string departmentString)
+        {
+            if (pageSize <= 0 || pageIndex <= 0)
+            {
+                throw new EmployeeException(Properties.Resources.Invalid_Paging_number);
+            }
+            var responses = _employeeRepository.GetEmployeesSortByName(pageSize, pageIndex, departmentString);
+            return responses;
+        }
+
+        /// <summary>
         /// Lấy mã nhân viên lớn nhất trong database
         /// </summary>
         /// <returns>Mã nhân viên lớn nhất dạng NV-4số</returns>

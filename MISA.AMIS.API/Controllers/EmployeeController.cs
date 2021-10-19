@@ -107,7 +107,49 @@ namespace MISA.AMIS.API.Controllers
             string excelName = $"{Properties.Resources.ExcelFileName}(ExportByVVDong).xlsx";
             //return File(stream, "application/octet-stream", excelName);
             return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", excelName);
+        }
 
+        /// <summary>
+        /// Lấy danh sách nhân viên theo 2 cách:
+        /// 1. Sắp xếp theo code (theo thứ tự thêm mới)
+        /// 2. Sắp xếp theo tên (thứ tự anphabe)
+        /// Kết hợp với nhóm theo phòng ban (đơn vị)
+        /// </summary>
+        /// <param name="pageSize">số bản ghi / trang</param>
+        /// <param name="pageIndex">số trang</param>
+        /// <param name="departmentString">điều kiện để nhóm phòng ban</param>
+        /// <returns></returns>
+        [HttpGet("SortByCode")]
+        public IActionResult GetEmployeesSortByCode(int pageSize, int pageIndex, string departmentString)
+        {
+            var totalRecord = _employeeRepository.GetTotalEmployeesSortBy(departmentString);
+            var employees = _employeeServices.GetEmployeesSortByCode(pageSize, pageIndex, departmentString);
+            var response = new
+            {
+                totalRecord = totalRecord,
+                data = employees,
+            };
+            if (response.data.Any() && response.totalRecord != 0)
+            {
+                return Ok(response);
+            }
+            else return NoContent();
+        }
+        [HttpGet("SortByName")]
+        public IActionResult GetEmployeesSortByName(int pageSize, int pageIndex, string departmentString)
+        {
+            var totalRecord = _employeeRepository.GetTotalEmployeesSortBy(departmentString);
+            var employees = _employeeServices.GetEmployeesSortByName(pageSize, pageIndex, departmentString);
+            var response = new
+            {
+                totalRecord = totalRecord,
+                data = employees,
+            };
+            if (response.data.Any() && response.totalRecord != 0)
+            {
+                return Ok(response);
+            }
+            else return NoContent();
         }
 
 
