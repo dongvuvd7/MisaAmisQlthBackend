@@ -42,7 +42,7 @@ namespace MISA.AMIS.CORE.Entities
         /// <summary>
         /// Ngày sinh
         /// </summary>
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         /// <summary>
         /// Số CMND
@@ -52,7 +52,7 @@ namespace MISA.AMIS.CORE.Entities
         /// <summary>
         /// Ngày cấp CMND
         /// </summary>
-        public DateTime IdentityDate { get; set; }
+        public DateTime? IdentityDate { get; set; }
 
         /// <summary>
         /// Nơi cấp CMND
@@ -72,12 +72,12 @@ namespace MISA.AMIS.CORE.Entities
         /// <summary>
         /// Khóa chính (ID) phòng ban
         /// </summary>
+        [RequiredField]
         public Guid DepartmentId { get; set; }
 
         /// <summary>
         /// Tên phòng ban
         /// </summary>
-        [RequiredField]
         public string DepartmentName { get; set; }
 
         /// <summary>

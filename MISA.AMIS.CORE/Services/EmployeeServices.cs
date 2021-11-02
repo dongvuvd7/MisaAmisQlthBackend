@@ -105,7 +105,7 @@ namespace MISA.AMIS.CORE.Services
                 workSheet.Cells[i + 4, 2].Value = list[i].EmployeeCode;
                 workSheet.Cells[i + 4, 3].Value = list[i].FullName;
                 workSheet.Cells[i + 4, 4].Value = list[i].GenderName;
-                workSheet.Cells[i + 4, 5].Value = list[i].DateOfBirth.ToString("dd/MM/yyyy");
+                workSheet.Cells[i + 4, 5].Value = list[i].DateOfBirth.ToString();
                 workSheet.Cells[i + 4, 6].Value = list[i].JobTitle;
                 workSheet.Cells[i + 4, 7].Value = list[i].DepartmentName;
                 workSheet.Cells[i + 4, 8].Value = list[i].BankAccount;
