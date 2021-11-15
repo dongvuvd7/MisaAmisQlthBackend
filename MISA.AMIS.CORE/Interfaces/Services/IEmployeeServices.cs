@@ -61,5 +61,21 @@ namespace MISA.AMIS.CORE.Interfaces.Services
         /// <returns></returns>
         public IEnumerable<Employee> GetEmployeesSortByCode(int pageSize, int pageIndex, string departmentString);
         public IEnumerable<Employee> GetEmployeesSortByName(int pageSize, int pageIndex, string departmentString);
+
+        /// <summary>
+        /// Lấy các ngân hàng liên kết với nhân viên theo UserId (mã nhân viên)
+        /// Phục vụ việc bind danh sách các ngân hàng của nhân viên lên tab ngân hàng
+        /// </summary>
+        /// <param name="UserId">Mã nhân viên</param>
+        /// <returns>Danh sách các bản ghi ngân hàng tương ứng</returns>
+        public IEnumerable<BankEmp> GetBankEmpByUserId(Guid UserId);
+
+        /// <summary>
+        /// Lấy bản ghi nhân viên theo EmployeeCode (mã nhân viên)
+        /// Phục vụ việc lấy EmployeeId làm khóa ngoại để post các bankEmp lên
+        /// </summary>
+        /// <param name="employeeCode">mã nhân viên</param>
+        /// <returns>bản ghi nhân viên tương ứng</returns>
+        public Employee GetEmployeeByEmployeeCode(string employeeCode);
     }
 }

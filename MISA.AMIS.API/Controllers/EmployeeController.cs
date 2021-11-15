@@ -152,6 +152,36 @@ namespace MISA.AMIS.API.Controllers
             else return NoContent();
         }
 
+        /// <summary>
+        /// Lấy các ngân hàng liên kết với nhân viên theo UserId (mã nhân viên)
+        /// Phục vụ việc bind danh sách các ngân hàng của nhân viên lên tab ngân hàng
+        /// </summary>
+        /// <param name="UserId">Mã nhân viên</param>
+        /// <returns>Danh sách các bản ghi ngân hàng tương ứng</returns>
+        /// CreatedBy: VDDong (02/11/2021)
+        [HttpGet("GetAllBankEmpByUserId/{UserId}")]
+        public IActionResult GetBankEmpByUserId(Guid UserId)
+        {
+            var responses = _employeeServices.GetBankEmpByUserId(UserId);
+            if (responses.Count() > 0) return Ok(responses);
+            else return NoContent();
+        }
+
+        /// <summary>
+        /// Lấy bản ghi nhân viên theo EmployeeCode (mã nhân viên)
+        /// Phục vụ việc lấy EmployeeId làm khóa ngoại để post các bankEmp lên
+        /// </summary>
+        /// <param name="employeeCode"></param>
+        /// <returns>Bản ghi nhân viên tương ứng</returns>
+        /// CreatedBy: VDDong (02/11/2021)
+        [HttpGet("GetEmployeeByEmployeeCode/{employeeCode}")]
+        public IActionResult GetEmployeeByEmployeeCode(string employeeCode)
+        {
+            var response = _employeeServices.GetEmployeeByEmployeeCode(employeeCode);
+            if (response != null) return Ok(response);
+            else return NoContent();
+        }
+
 
     }
 }

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Account_Name" xml:space="preserve">
+    <value>Tên khoản thu</value>
+  </data>
   <data name="CustomerId_Null_msg" xml:space="preserve">
     <value>ID khách hàng không được phép để trống!.</value>
   </data>
@@ -152,6 +155,15 @@
   </data>
   <data name="MISACode" xml:space="preserve">
     <value>001</value>
+  </data>
+  <data name="MS" xml:space="preserve">
+    <value>MS</value>
+  </data>
+  <data name="MS0" xml:space="preserve">
+    <value>MS0</value>
+  </data>
+  <data name="MS00" xml:space="preserve">
+    <value>MS00</value>
   </data>
   <data name="Ncc_Code" xml:space="preserve">
     <value>Mã nhà cung cấp</value>
@@ -191,6 +203,9 @@
   </data>
   <data name="Search_input_invalid_characters" xml:space="preserve">
     <value>Nhập kí tự không hợp lệ, vui lòng thử lại</value>
+  </data>
+  <data name="Teacher_Code" xml:space="preserve">
+    <value>Mã cán bộ</value>
   </data>
   <data name="User_msg" xml:space="preserve">
     <value>Có lỗi xảy ra vui lòng liên hệ MISA!.</value>

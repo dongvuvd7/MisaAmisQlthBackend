@@ -45,6 +45,25 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         }
 
         /// <summary>
+        /// Lấy các ngân hàng liên kết với nhân viên theo UserId (mã nhân viên)
+        /// Phục vụ việc bind danh sách các ngân hàng của nhân viên lên tab ngân hàng
+        /// </summary>
+        /// <param name="UserId">Mã nhân viên</param>
+        /// <returns>Danh sách các bản ghi ngân hàng tương ứng</returns>
+        /// CreatedBy: VDDong (02/11/2021)
+        public IEnumerable<BankEmp> GetBankEmpByUserId(Guid UserId)
+        {
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                var sqlCommand = "Proc_GetBankEmpByUserId";
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("UserId", UserId);
+                var response = dbConnection.Query<BankEmp>(sqlCommand, param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                return response;
+            }
+        }
+
+        /// <summary>
         /// Lấy phòng ban dựa theo id
         /// </summary>
         /// <param name="departmentId">id của phòng ban cần lấy</param>
@@ -73,6 +92,25 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
             {
                 var sqlCommand = "Proc_GetDepartments";
                 var response = dbConnection.Query<EmployeeDepartment>(sqlCommand, commandType: CommandType.StoredProcedure);
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// Lấy bản ghi nhân viên theo EmployeeCode (mã nhân viên)
+        /// Phục vụ việc lấy EmployeeId làm khóa ngoại để post các bankEmp lên
+        /// </summary>
+        /// <param name="employeeCode">mã nhân viên</param>
+        /// <returns>bản ghi nhân viên tương ứng</returns>
+        /// CreatedBy: VDDong (02/11/2021)
+        public Employee GetEmployeeByEmployeeCode(string employeeCode)
+        {
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                var sqlCommand = "Proc_GetEmployeeByEmployeeCode";
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@EmployeeCode", employeeCode);
+                var response = dbConnection.QueryFirstOrDefault<Employee>(sqlCommand, param: dynamicParameters, commandType: CommandType.StoredProcedure);
                 return response;
             }
         }

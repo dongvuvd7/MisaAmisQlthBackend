@@ -125,6 +125,19 @@ namespace MISA.AMIS.CORE.Services
         }
 
         /// <summary>
+        /// Lấy các ngân hàng liên kết với nhân viên theo UserId (mã nhân viên)
+        /// Phục vụ việc bind danh sách các ngân hàng của nhân viên lên tab ngân hàng
+        /// </summary>
+        /// <param name="UserId">Mã nhân viên</param>
+        /// <returns>Danh sách các bản ghi ngân hàng tương ứng</returns>
+        /// CreatedBy: VDDong (02/11/2021)
+        public IEnumerable<BankEmp> GetBankEmpByUserId(Guid UserId)
+        {
+            var responses = _employeeRepository.GetBankEmpByUserId(UserId);
+            return responses;
+        }
+
+        /// <summary>
         /// Lấy tên các phòng ban
         /// </summary>
         /// <returns>Trả về tên các phòng ban</returns>
@@ -132,6 +145,19 @@ namespace MISA.AMIS.CORE.Services
         public IEnumerable<EmployeeDepartment> GetDepartmentName()
         {
             var response = _employeeRepository.GetDepartmentName();
+            return response;
+        }
+
+        /// <summary>
+        /// Lấy bản ghi nhân viên theo EmployeeCode (mã nhân viên)
+        /// Phục vụ việc lấy EmployeeId làm khóa ngoại để post các bankEmp lên
+        /// </summary>
+        /// <param name="employeeCode"></param>
+        /// <returns>Bản ghi nhân viên tương ứng</returns>
+        /// CreatedBy: VDDong (02/11/2021)
+        public Employee GetEmployeeByEmployeeCode(string employeeCode)
+        {
+            var response = _employeeRepository.GetEmployeeByEmployeeCode(employeeCode);
             return response;
         }
 

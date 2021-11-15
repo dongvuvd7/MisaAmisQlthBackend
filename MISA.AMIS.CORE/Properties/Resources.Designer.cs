@@ -61,6 +61,15 @@ namespace MISA.AMIS.CORE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tên khoản thu.
+        /// </summary>
+        internal static string Account_Name {
+            get {
+                return ResourceManager.GetString("Account_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mã khách hàng đã tồn tại trên hệ thống!..
         /// </summary>
         internal static string Customer_Code_Exists_msg {
@@ -165,6 +174,33 @@ namespace MISA.AMIS.CORE.Properties {
         internal static string MISACode {
             get {
                 return ResourceManager.GetString("MISACode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MS.
+        /// </summary>
+        internal static string MS {
+            get {
+                return ResourceManager.GetString("MS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MS0.
+        /// </summary>
+        internal static string MS0 {
+            get {
+                return ResourceManager.GetString("MS0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MS00.
+        /// </summary>
+        internal static string MS00 {
+            get {
+                return ResourceManager.GetString("MS00", resourceCulture);
             }
         }
         
@@ -282,6 +318,15 @@ namespace MISA.AMIS.CORE.Properties {
         internal static string Search_input_invalid_characters {
             get {
                 return ResourceManager.GetString("Search_input_invalid_characters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã cán bộ.
+        /// </summary>
+        internal static string Teacher_Code {
+            get {
+                return ResourceManager.GetString("Teacher_Code", resourceCulture);
             }
         }
         

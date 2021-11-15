@@ -179,6 +179,7 @@ namespace MISA.AMIS.CORE.Services
                         };
                         var nameProperty = "";
                         if (String.Equals(property.Name, "Phone")) nameProperty = "ĐT di động";
+                        else if (String.Equals(property.Name, "TeacherPhone")) nameProperty = "Số điện thoại";
                         else if (String.Equals(property.Name, "Telephone")) nameProperty = "ĐT cố định";
                         throw new EmployeeException(nameProperty + " chưa đúng định dạng !");
                     }

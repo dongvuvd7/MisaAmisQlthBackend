@@ -57,6 +57,10 @@ namespace MISA.AMIS.API
             services.AddScoped<IBankNccServices, BankNccServices>();
             services.AddScoped<IBankEmpRepository, BankEmpRepository>();
             services.AddScoped<IBankEmpServices, BankEmpServices>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IAccountServices, AccountServices>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<ITeacherServices, TeacherServices>();
 
 
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
