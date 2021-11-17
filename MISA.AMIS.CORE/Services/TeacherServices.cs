@@ -3,8 +3,11 @@ using MISA.AMIS.CORE.Enums;
 using MISA.AMIS.CORE.Exceptions;
 using MISA.AMIS.CORE.Interfaces.Repositories;
 using MISA.AMIS.CORE.Interfaces.Services;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,7 +27,105 @@ namespace MISA.AMIS.CORE.Services
 
         public Stream ExportExcel()
         {
-            throw new NotImplementedException();
+            //lấy tất cả danh sách giáo viên để export ra file excel
+            var list = _teacherRepository.GetAll().ToList<Teacher>();
+            //lấy tất cả danh sách tổ để format tổ (export ra groupName chứ không nên groupId)
+            var groupList = _teacherRepository.GetGroupName().ToList<TeacherGroup>();
+
+            //khai báo khởi tạo tiêu đề sheet trong file excel là DANH SÁCH CÁN BỘ
+            var stream = new MemoryStream();
+            //ExcelPackage.LicenseContext = LicenseContext.Commercial;
+            using var package = new ExcelPackage(stream);
+            var workSheet = package.Workbook.Worksheets.Add("DANH SÁCH CÁN BỘ");
+
+            // set độ rộng từng column
+            workSheet.Column(1).Width = 5; //STT
+            workSheet.Column(2).Width = 15; //Mã
+            workSheet.Column(3).Width = 30; //Tên
+            workSheet.Column(4).Width = 20; //ĐT
+            workSheet.Column(5).Width = 25; //Tổ
+            workSheet.Column(6).Width = 30; //Môn
+            workSheet.Column(7).Width = 30; //Phòng
+            workSheet.Column(8).Width = 15; //QLTB
+            workSheet.Column(9).Width = 15; //Trạng thái
+
+            //dòng đầu tiên - tiêu đề
+            using (var range = workSheet.Cells["A1:I1"]) //độ rộng tiêu đề từ cột A1 đến cột I1
+            {
+                range.Merge = true; //gộp các cột lại (bỏ border ngăn giữa đi)
+                range.Value = "DANH SÁCH CÁN BỘ"; //giá trị dòng đó
+                range.Style.Font.Bold = true; //set font đậm
+                range.Style.Font.Size = 16; //set font size
+                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center; //căn giữa dòng
+            }
+
+            // style cho excel.
+            //gán giá trị cho từng ô[hàng, cột]
+            workSheet.Cells[3, 1].Value = "STT";
+            workSheet.Cells[3, 2].Value = "Số hiệu cán bộ";
+            workSheet.Cells[3, 3].Value = "Họ và tên";
+            workSheet.Cells[3, 4].Value = "Số điện thoại";
+            workSheet.Cells[3, 5].Value = "Tổ chuyên môn";
+            workSheet.Cells[3, 6].Value = "Quản lý thiết bị môn";
+            workSheet.Cells[3, 7].Value = "Quản lý kho - phòng";
+            workSheet.Cells[3, 8].Value = "Đào tạo QLTB";
+            workSheet.Cells[3, 9].Value = "Đang làm việc";
+
+            //style cho các ô từ A3 đến I3
+            using (var range = workSheet.Cells["A3:I3"])
+            {
+                range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                range.Style.Fill.BackgroundColor.SetColor(Color.LightGray); //background color
+                range.Style.Font.Bold = true; //set font đậm
+                range.Style.Border.BorderAround(ExcelBorderStyle.Thin); //border xung quanh
+                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center; //căn giữa dòng
+            }
+
+
+
+            // đổ dữ liệu từ list vào.
+            for (int i = 0; i < list.Count(); i++)
+            {
+
+                //Format tên tổ
+                for (int j = 0; j < groupList.Count(); j++)
+                {
+                    if (list[i].TeacherGroup == groupList[j].GroupId) list[i].TeacherGroupName = groupList[j].GroupName;
+                }
+                //Format đào tạo QLTB
+                String qltb = "";
+                if(list[i].TeacherQltb == 1) qltb = "x";
+                //Format tình trạng công việc
+                String StatusWork = "";
+                if (list[i].TeacherStatus == 1) StatusWork = "x";
+
+                //bắt đầu từ dòng 4 nên (i+4)
+                workSheet.Cells[i + 4, 1].Value = i + 1; //STT
+                workSheet.Cells[i + 4, 2].Value = list[i].TeacherCode;
+                workSheet.Cells[i + 4, 3].Value = list[i].TeacherName;
+                workSheet.Cells[i + 4, 4].Value = list[i].TeacherPhone;
+                workSheet.Cells[i + 4, 5].Value = list[i].TeacherGroupName;
+                workSheet.Cells[i + 4, 6].Value = list[i].TeacherSubject;
+                workSheet.Cells[i + 4, 7].Value = list[i].TeacherRoom;
+                workSheet.Cells[i + 4, 8].Value = qltb;
+                workSheet.Cells[i + 4, 9].Value = StatusWork;
+
+                //đóng khung border cho từng dòng từ ô[i+1, 1] đến ô[i+4, 9]
+                using (var range = workSheet.Cells[i + 4, 1, i + 4, 7])
+                {
+                    range.Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left; //căn trái dữ liệu
+                }
+                using (var range = workSheet.Cells[i + 4, 8, i + 4, 9])
+                {
+                    range.Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center; //căn giữa dữ liệu
+                }
+            }
+
+            package.Save();
+            stream.Position = 0;
+            return package.Stream;
         }
 
         /// <summary>

@@ -79,6 +79,15 @@ namespace MISA.AMIS.API.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Danh_sach_can_bo.
+        /// </summary>
+        internal static string FileTeacherExcel {
+            get {
+                return ResourceManager.GetString("FileTeacherExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 002.
         /// </summary>
         internal static string MISACode {
