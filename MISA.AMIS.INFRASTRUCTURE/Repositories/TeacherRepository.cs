@@ -45,6 +45,21 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         }
 
         /// <summary>
+        /// Xóa nhiều bản ghi teacher
+        /// </summary>
+        /// <param name="recordIds">Chuỗi các id muốn xóa</param>
+        /// <returns>Số bản ghi đã xóa</returns>
+        public int DeleteMultipleTeacher(string recordIds)
+        {
+            using (dbConnection = new MySqlConnection(connectionString))
+            {
+                var sqlCommand = $"DELETE FROM Teacher WHERE TeacherId IN {recordIds}";
+                var rowsAffect = dbConnection.Execute(sqlCommand);
+                return rowsAffect;
+            }
+        }
+
+        /// <summary>
         /// Lấy tên tổ theo Id
         /// </summary>
         /// <param name="groupId">ID tổ</param>

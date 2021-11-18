@@ -24,7 +24,21 @@ namespace MISA.AMIS.CORE.Services
             _teacherRepository = teacherRepository;
         }
 
+        /// <summary>
+        /// Xóa nhiều bản ghi teacher
+        /// </summary>
+        /// <param name="recordIds">Chuỗi các id muốn xóa</param>
+        /// <returns>Số bản ghi đã xóa</returns>
+        public int DeleteMultipleTeacher(string recordIds)
+        {
+            var rowsAffects = _teacherRepository.DeleteMultipleTeacher(recordIds);
+            return rowsAffects;
+        }
 
+        /// <summary>
+        /// Xuất bản ra file excel
+        /// </summary>
+        /// <returns>File excel danh sách các bản ghi cán bộ giáo viên</returns>
         public Stream ExportExcel()
         {
             //lấy tất cả danh sách giáo viên để export ra file excel

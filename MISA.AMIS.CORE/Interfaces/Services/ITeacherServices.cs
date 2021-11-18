@@ -62,5 +62,12 @@ namespace MISA.AMIS.CORE.Interfaces.Services
         public IEnumerable<Teacher> GetTeachersSortByCode(int pageSize, int pageIndex, string groupString);
         public IEnumerable<Teacher> GetTeachersSortByName(int pageSize, int pageIndex, string groupString);
 
+        /// <summary>
+        /// Xóa nhiều bản ghi teacher
+        /// </summary>
+        /// <param name="recordIds">Chuỗi các id muốn xóa</param>
+        /// <returns>Số bản ghi đã xóa</returns>
+        public int DeleteMultipleTeacher(string recordIds);
+
     }
 }

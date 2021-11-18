@@ -152,5 +152,14 @@ namespace MISA.AMIS.API.Controllers
             else return NoContent();
         }
 
+
+        [HttpDelete("MultipleDelete/{recordIds}")]
+        public IActionResult DeleteMultiple(string recordIds)
+        {
+            var rowsAffect = _teacherServices.DeleteMultipleTeacher(recordIds);
+            if (rowsAffect > 0) return Ok(rowsAffect);
+            else return NoContent();
+        }
+
     }
 }
