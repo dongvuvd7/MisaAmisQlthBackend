@@ -17,18 +17,22 @@ namespace MISA.AMIS.CORE.Services
 {
     public class TeacherServices : BaseServices<Teacher>, ITeacherServices
     {
+        #region Constructor
         ITeacherRepository _teacherRepository;
 
         public TeacherServices(ITeacherRepository teacherRepository) : base(teacherRepository)
         {
             _teacherRepository = teacherRepository;
         }
+        #endregion
 
+        #region Methods
         /// <summary>
         /// Xóa nhiều bản ghi teacher
         /// </summary>
         /// <param name="recordIds">Chuỗi các id muốn xóa</param>
         /// <returns>Số bản ghi đã xóa</returns>
+        /// CreatedBy: VDDong (19/11/2021)
         public int DeleteMultipleTeacher(string recordIds)
         {
             var rowsAffects = _teacherRepository.DeleteMultipleTeacher(recordIds);
@@ -39,6 +43,7 @@ namespace MISA.AMIS.CORE.Services
         /// Xuất bản ra file excel
         /// </summary>
         /// <returns>File excel danh sách các bản ghi cán bộ giáo viên</returns>
+        /// CreatedBy: VDDong (19/11/2021)
         public Stream ExportExcel()
         {
             //lấy tất cả danh sách giáo viên để export ra file excel
@@ -146,7 +151,7 @@ namespace MISA.AMIS.CORE.Services
         /// Lấy tên các tổ
         /// </summary>
         /// <returns>Trả về tên các tổ</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<TeacherGroup> GetGroupName()
         {
             var response = _teacherRepository.GetGroupName();
@@ -157,7 +162,7 @@ namespace MISA.AMIS.CORE.Services
         /// Lấy mã giáo viên lớn nhất trong database
         /// </summary>
         /// <returns>Mã giáo viên lớn nhất</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public string GetMaxCode()
         {
             var response = _teacherRepository.GetMaxCode();
@@ -176,7 +181,7 @@ namespace MISA.AMIS.CORE.Services
         /// </summary>
         /// <param name="searchResult"></param>
         /// <returns>Kết quả sau tìm kiếm</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<Teacher> GetSearchResult(string searchResult)
         {
             var responses = _teacherRepository.GetSearchResult(searchResult);
@@ -190,7 +195,7 @@ namespace MISA.AMIS.CORE.Services
         /// <param name="pageIndex">trang số bao nhiêu</param>
         /// <param name="filter">chuỗi để lọc</param>
         /// <returns>Danh sách giáo viên tương ứng</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<Teacher> GetTeachers(int pageSize, int pageIndex, string filter)
         {
             if (pageSize <= 0 || pageIndex <= 0)
@@ -211,6 +216,7 @@ namespace MISA.AMIS.CORE.Services
         /// <param name="pageIndex">số trang</param>
         /// <param name="groupString">điều kiện để nhóm tổ</param>
         /// <returns>Danh sách bản ghi tương ứng</returns>
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<Teacher> GetTeachersSortByCode(int pageSize, int pageIndex, string groupString)
         {
             if (pageSize <= 0 || pageIndex <= 0)
@@ -231,7 +237,13 @@ namespace MISA.AMIS.CORE.Services
             return responses;
         }
 
-
+        /// <summary>
+        /// Validate riêng của Teacher
+        /// Validate xem mã có bị trùng không
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="http"></param>
+        /// CreatedBy: VDDong (19/11/2021)
         protected override void CustomValidate(Teacher entity, HttpType http)
         {
             if (entity is Teacher)
@@ -247,5 +259,8 @@ namespace MISA.AMIS.CORE.Services
                 }
             }
         }
+
+        #endregion
+
     }
 }

@@ -12,6 +12,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
 {
     public class BaseRepository<MISAEntity> : IBaseRepository<MISAEntity> where MISAEntity : class
     {
+        #region Connection
         protected string connectionString = "" +
             "Host = 47.241.69.179; " +
             "Port = 3306; " +
@@ -21,7 +22,9 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
             "Convert Zero Datetime = True;";
 
         protected IDbConnection dbConnection;
+        #endregion
 
+        #region Methods
         string tableName = typeof(MISAEntity).Name;
 
         /// <summary>
@@ -29,7 +32,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// </summary>
         /// <param name="entityId">Id của bản ghi muốn xóa</param>
         /// <returns>Số bản ghi bị ảnh hưởng</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public int Delete(Guid entityId)
         {
             using(dbConnection = new MySqlConnection(connectionString))
@@ -45,7 +48,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// Lấy tất cả bản ghi từ database
         /// </summary>
         /// <returns>Tất cả bản ghi</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<MISAEntity> GetAll()
         {
             using(dbConnection = new MySqlConnection(connectionString))
@@ -60,7 +63,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// </summary>
         /// <param name="entityId">id của bản ghi muốn lấy</param>
         /// <returns>Trả về bản ghi tương ứng với id</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public MISAEntity GetById(Guid entityId)
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -78,7 +81,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <returns>Số lượng bản ghi mỗi tranng</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<MISAEntity> GetPaging(int pageIndex, int pageSize)
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -96,7 +99,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// </summary>
         /// <param name="entity"></param>
         /// <returns>Số lượng bản ghi ảnh hưởng (thêm được)</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public int Post(MISAEntity entity)
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -111,7 +114,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// </summary>
         /// <param name="entity"></param>
         /// <returns>Số bản ghi ảnh hưởng</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public int Put(MISAEntity entity)
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -120,5 +123,6 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
                 return rowAffects;
             }
         }
+        #endregion
     }
 }

@@ -12,20 +12,23 @@ namespace MISA.AMIS.API.Controllers
     [ApiController]
     public class BaseController<MISAEntity> : ControllerBase where MISAEntity : class
     {
+        #region Constructor
         IBaseServices<MISAEntity> _dataAccessBaseServices;
 
         public BaseController(IBaseRepository<MISAEntity> baseRepository, IBaseServices<MISAEntity> dataAccessBaseServices)
         {
             _dataAccessBaseServices = dataAccessBaseServices;
         }
+        #endregion
 
+        #region API Methods
         /// <summary>
         /// Lấy tất cả các bản ghi từ database
         /// </summary>
         /// <returns>Tất cả các bản ghi</returns>
         /// <response code="200">có dữ liệu trả về -> lấy thành công</response>
         /// <response code="204">không có dữ liệu trả về -> lấy thất bại</response>
-        /// CreatedBy: VDDong (09/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -41,7 +44,7 @@ namespace MISA.AMIS.API.Controllers
         /// <returns>Bản ghi tương ứng</returns>
         /// <response code="200">có dữ liệu trả về -> lấy thành công</response>
         /// <response code="204">không có dữ liệu trả về -> lấy thất bại</response>
-        /// CreatedBy: VDDong (09/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpGet("{entityId}")]
         public IActionResult GetById(Guid entityId)
         {
@@ -57,7 +60,7 @@ namespace MISA.AMIS.API.Controllers
         /// <returns>Số lượng bản ghi bị ảnh hưởng</returns>
         /// <response code="200">có số lượng bản ghi bị ảnh hưởng, thêm thành công</response>
         /// <response code="204">không có số lượng bản ghi bị ảnh hưởng, thêm thất bại</response>
-        /// CreatedBy: VDDong (09/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpPost]
         public IActionResult Post([FromBody] MISAEntity entity)
         {
@@ -74,7 +77,7 @@ namespace MISA.AMIS.API.Controllers
         /// <returns>Số lượng bản ghi bị ảnh hưởng</returns>
         /// <response code="200">có số lượng bản ghi bị ảnh hưởng, thêm thành công</response>
         /// <response code="204">không có số lượng bản ghi bị ảnh hưởng, thêm thất bại</response>
-        /// CreatedBy: VDDong (09/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, [FromBody] MISAEntity entity)
         {
@@ -99,7 +102,7 @@ namespace MISA.AMIS.API.Controllers
         /// <returns>Số lượng bản ghi bị ảnh hưởng</returns>
         /// <response code="200">có số lượng bản ghi bị ảnh hưởng, xóa thành công</response>
         /// <response code="204">không có số lượng bản ghi bị ảnh hưởng, xóa thất bại</response>
-        /// CreatedBy: VDDong (09/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpDelete("{entityid}")]
         public IActionResult Delete(Guid entityid)
         {
@@ -116,7 +119,7 @@ namespace MISA.AMIS.API.Controllers
         /// <returns>Các bản ghi tương ứng phân trang</returns>
         /// <response code"200">lấy thành công</response>
         /// <response code"204">Lấy thất bại</response>
-        /// CreatedBy: VDDong (09/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpGet("Paging")]
         public IActionResult GetPaging(int pageIndex, int pageSize)
         {
@@ -125,6 +128,6 @@ namespace MISA.AMIS.API.Controllers
             else return NoContent();
         }
 
-
+        #endregion
     }
 }

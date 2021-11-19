@@ -14,6 +14,7 @@ namespace MISA.AMIS.API.Controllers
     [ApiController]
     public class TeacherController : BaseController<Teacher>
     {
+        #region Constructor
         ITeacherRepository _teacherRepository;
         ITeacherServices _teacherServices;
         public TeacherController(ITeacherRepository teacherRepository, ITeacherServices teacherServices) : base(teacherRepository, teacherServices)
@@ -21,14 +22,16 @@ namespace MISA.AMIS.API.Controllers
             _teacherRepository = teacherRepository;
             _teacherServices = teacherServices;
         }
+        #endregion
 
+        #region API Methods
         /// <summary>
         /// Lấy tất cả tổ từ database
         /// </summary>
         /// <returns>Tên tổ tương ứng</returns>
         /// <response code = "200">: có dữ liệu trả về</response>
         /// <response code = "204">: không có dữ liệu trả về</response>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpGet("Group")]
         public IActionResult GetGroupName()
         {
@@ -44,7 +47,7 @@ namespace MISA.AMIS.API.Controllers
         /// <returns>Dữ liệu bản ghi phù hợp với kết quả tìm kiếm</returns>
         /// <response code = "200">: có dữ liệu trả về</response>
         /// <response code = "204">: không có dữ liệu trả về</response>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpGet("Search/{searchResult}")]
         public IActionResult GetSearchResult(string searchResult)
         {
@@ -59,7 +62,7 @@ namespace MISA.AMIS.API.Controllers
         /// <returns>Mã giáo viên lớn nhất</returns>
         /// <response code = "200">: có dữ liệu trả về</response>
         /// <response code = "204">: không có dữ liệu trả về</response>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpGet("MaxCode")]
         public IActionResult GetMaxCode()
         {
@@ -77,7 +80,7 @@ namespace MISA.AMIS.API.Controllers
         /// <returns>Danh sách giáo viên</returns>
         /// <response code = "200">: có dữ liệu trả về</response>
         /// <response code = "204">: không có dữ liệu trả về</response>
-        /// CreatedBy: VDDong (09/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpGet("Filter")]
         public IActionResult GetTeachers(int pageSize, int pageIndex, string filter)
         {
@@ -99,7 +102,7 @@ namespace MISA.AMIS.API.Controllers
         /// Xuất dữ liệu cán bộ ra file excel
         /// </summary>
         /// <returns>file excel</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpGet("Export")]
         public IActionResult Export()
         {
@@ -119,7 +122,8 @@ namespace MISA.AMIS.API.Controllers
         /// <param name="pageIndex">số trang</param>
         /// <param name="departmentString">điều kiện để nhóm phòng ban</param>
         /// <returns></returns>
-        [HttpGet("SortByCode")]
+        /// CreatedBy: VDDong (19/11/2021)
+        [HttpGet("CodeDecrease")]
         public IActionResult GetTeachersSortByCode(int pageSize, int pageIndex, string groupString)
         {
             var totalRecord = _teacherRepository.GetTotalTeachersSortBy(groupString);
@@ -135,7 +139,7 @@ namespace MISA.AMIS.API.Controllers
             }
             else return NoContent();
         }
-        [HttpGet("SortByName")]
+        [HttpGet("NameAnphabe")]
         public IActionResult GetTeachersSortByName(int pageSize, int pageIndex, string groupString)
         {
             var totalRecord = _teacherRepository.GetTotalTeachersSortBy(groupString);
@@ -152,7 +156,12 @@ namespace MISA.AMIS.API.Controllers
             else return NoContent();
         }
 
-
+        /// <summary>
+        /// Xóa nhiều bản ghi một lúc
+        /// </summary>
+        /// <param name="recordIds"></param>
+        /// <returns>Số bản ghi ảnh hưởng</returns>
+        /// CreatedBy: VDDong (19/11/2021)
         [HttpDelete("MultipleDelete/{recordIds}")]
         public IActionResult DeleteMultiple(string recordIds)
         {
@@ -160,6 +169,6 @@ namespace MISA.AMIS.API.Controllers
             if (rowsAffect > 0) return Ok(rowsAffect);
             else return NoContent();
         }
-
+        #endregion
     }
 }

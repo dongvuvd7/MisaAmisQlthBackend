@@ -14,19 +14,22 @@ namespace MISA.AMIS.CORE.Services
 {
     public class BaseServices<MISAEntity> : IBaseServices<MISAEntity> where MISAEntity : class
     {
+        #region Constructor
         IBaseRepository<MISAEntity> _dataAccessBaseRepository;
 
         public BaseServices(IBaseRepository<MISAEntity> dataAccessBaseRepository)
         {
             _dataAccessBaseRepository = dataAccessBaseRepository;
         }
+        #endregion
 
+        #region Methods
         /// <summary>
         /// Xóa 1 bản ghi theo id
         /// </summary>
         /// <param name="entityId"></param>
         /// <returns>Số lượng bản ghi bị ảnh hưởng</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public int Delete(Guid entityId)
         {
             var rowsAffects = _dataAccessBaseRepository.Delete(entityId);
@@ -37,7 +40,7 @@ namespace MISA.AMIS.CORE.Services
         /// Lấy tất cả bản ghi từ database
         /// </summary>
         /// <returns>Tất cả bản ghi</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<MISAEntity> GetAll()
         {
             var response = _dataAccessBaseRepository.GetAll();
@@ -49,7 +52,7 @@ namespace MISA.AMIS.CORE.Services
         /// </summary>
         /// <param name="entityId"></param>
         /// <returns>Bản ghi tương ứng với Id</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public MISAEntity GetById(Guid entityId)
         {
             var response = _dataAccessBaseRepository.GetById(entityId);
@@ -62,7 +65,7 @@ namespace MISA.AMIS.CORE.Services
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <returns>Dữ liệu phân trang các bản ghi</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<MISAEntity> GetPaging(int pageIndex, int pageSize)
         {
             if(pageIndex < 0 || pageSize < 0)
@@ -84,7 +87,7 @@ namespace MISA.AMIS.CORE.Services
         /// </summary>
         /// <param name="entity"></param>
         /// <returns>Số lượng bản ghi bị ảnh hưởng</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public int Post(MISAEntity entity)
         {
             Validate(entity, HttpType.POST);
@@ -97,7 +100,7 @@ namespace MISA.AMIS.CORE.Services
         /// </summary>
         /// <param name="entity"></param>
         /// <returns>Số lượng bản ghi bị ảnh hưởng</returns>
-        /// CreatedBy: VDDong (08/06/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public int Put(MISAEntity entity)
         {
             Validate(entity, HttpType.PUT);
@@ -105,6 +108,12 @@ namespace MISA.AMIS.CORE.Services
             return rowsAffects;
         }
 
+        /// <summary>
+        /// Validate trước khi request vào database
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="http"></param>
+        /// CreatedBy: VDDong (19/11/2021)
         private void Validate(MISAEntity entity, HttpType http)
         {
             //Lấy ra tất cả các property của class
@@ -228,9 +237,18 @@ namespace MISA.AMIS.CORE.Services
             CustomValidate(entity, http);
         }
 
+        /// <summary>
+        /// Validate riêng cho mỗi thực thể
+        /// Thực thể nào dùng thì override lại
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="http"></param>
+        /// CreatedBy: VDDong (19/11/2021)
         protected virtual void CustomValidate (MISAEntity entity, HttpType http)
         {
 
         }
+
+        #endregion
     }
 }

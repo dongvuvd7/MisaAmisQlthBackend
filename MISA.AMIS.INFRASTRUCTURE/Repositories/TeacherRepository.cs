@@ -14,6 +14,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
 {
     public class TeacherRepository : BaseRepository<Teacher>, ITeacherRepository
     {
+        #region Methods
         /// <summary>
         /// Kiểm tra trùng mã giáo viên trong database
         /// </summary>
@@ -21,7 +22,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// <param name="teacherId"></param>
         /// <param name="http"></param>
         /// <returns>true: trùng / false: không trùng</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public bool CheckDuplicateTeacherCode(string teacherCode, Guid teacherId, HttpType http)
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -49,6 +50,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// </summary>
         /// <param name="recordIds">Chuỗi các id muốn xóa</param>
         /// <returns>Số bản ghi đã xóa</returns>
+        /// CreatedBy: VDDong (19/11/2021)
         public int DeleteMultipleTeacher(string recordIds)
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -64,7 +66,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// </summary>
         /// <param name="groupId">ID tổ</param>
         /// <returns>Trả về tổ theo Id tương ứng</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public TeacherGroup GetGroupById(Guid groupId)
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -81,7 +83,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// Lấy tên các tổ
         /// </summary>
         /// <returns>Trả về tên các tổ</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<TeacherGroup> GetGroupName()
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -96,7 +98,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// Lấy mã giáo viên lớn nhất trong database
         /// </summary>
         /// <returns>Mã giáo viên lớn nhất</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public string GetMaxCode()
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -113,7 +115,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// </summary>
         /// <param name="searchResult"></param>
         /// <returns>Kết quả sau tìm kiếm</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<Teacher> GetSearchResult(string searchResult)
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -134,7 +136,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// <param name="pageIndex">trang số bao nhiêu</param>
         /// <param name="filter">chuỗi để lọc</param>
         /// <returns>Danh sách giáo viên tương ứng</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<Teacher> GetTeachers(int pageSize, int pageIndex, string filter)
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -159,6 +161,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// <param name="pageIndex">số trang</param>
         /// <param name="groupString">điều kiện để nhóm tổ</param>
         /// <returns>Danh sách bản ghi tương ứng</returns>
+        /// CreatedBy: VDDong (19/11/2021)
         public IEnumerable<Teacher> GetTeachersSortByCode(int pageSize, int pageIndex, string groupString)
         {
             if (groupString == null) groupString = "";
@@ -194,7 +197,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// </summary>
         /// <param name="filter">chuỗi để lọc</param>
         /// <returns>Số lương (int) giáo viên</returns>
-        /// CreatedBy: VDDong (15/11/2021)
+        /// CreatedBy: VDDong (19/11/2021)
         public int GetTotalTeachers(string filter)
         {
             using (dbConnection = new MySqlConnection(connectionString))
@@ -214,6 +217,7 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         /// </summary>
         /// <param name="groupString"></param>
         /// <returns>Số bản ghi (int) theo điều kiện</returns>
+        /// CreatedBy: VDDong (19/11/2021)
         public int GetTotalTeachersSortBy(string groupString)
         {
             if (groupString == null) groupString = "";
@@ -226,5 +230,6 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
                 return responses;
             }
         }
+        #endregion
     }
 }
