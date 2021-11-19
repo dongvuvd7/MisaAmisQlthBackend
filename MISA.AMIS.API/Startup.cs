@@ -61,6 +61,10 @@ namespace MISA.AMIS.API
             services.AddScoped<IAccountServices, AccountServices>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
             services.AddScoped<ITeacherServices, TeacherServices>();
+            services.AddScoped<ISubjectRepository, SubjectRepository>();
+            services.AddScoped<ISubjectServices, SubjectServices>();
+            services.AddScoped<IRoomRepository, RoomRepository>();
+            services.AddScoped<IRoomServices, RoomServices>();
 
 
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
