@@ -130,16 +130,17 @@ namespace MISA.AMIS.CORE.Services
                 workSheet.Cells[i + 4, 9].Value = StatusWork;
 
                 //đóng khung border cho từng dòng từ ô[i+1, 1] đến ô[i+4, 9]
-                using (var range = workSheet.Cells[i + 4, 1, i + 4, 7])
+                using (var range = workSheet.Cells[i + 4, 1, i + 4, 9])
                 {
                     range.Style.Border.BorderAround(ExcelBorderStyle.Thin);
                     range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left; //căn trái dữ liệu
                 }
-                using (var range = workSheet.Cells[i + 4, 8, i + 4, 9])
-                {
-                    range.Style.Border.BorderAround(ExcelBorderStyle.Thin);
-                    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center; //căn giữa dữ liệu
-                }
+                workSheet.Cells[i + 4, 8, i + 4, 9].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                //using (var range = workSheet.Cells[i + 4, 8, i + 4, 9])
+                //{
+                //    range.Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                //    range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center; //căn giữa dữ liệu
+                //}
             }
 
             package.Save();

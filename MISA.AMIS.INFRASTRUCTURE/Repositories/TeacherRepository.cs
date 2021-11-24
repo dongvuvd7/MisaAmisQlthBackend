@@ -55,9 +55,16 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         {
             using (dbConnection = new MySqlConnection(connectionString))
             {
+                //DynamicParameters dynamicPrameters = new DynamicParameters();
+                //dynamicPrameters.Add("@m_recordIds", recordIds);
+                //var sqlCommand = $"DELETE FROM Teacher WHERE TeacherId IN @m_recordIds";
+                //var rowsAffect = dbConnection.Execute(sqlCommand, param: dynamicPrameters, commandType: CommandType.Text);
+                //return rowsAffect;
+
                 var sqlCommand = $"DELETE FROM Teacher WHERE TeacherId IN {recordIds}";
                 var rowsAffect = dbConnection.Execute(sqlCommand);
                 return rowsAffect;
+
             }
         }
 
