@@ -37,9 +37,13 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         {
             using(dbConnection = new MySqlConnection(connectionString))
             {
+                dbConnection.Open();
+                var sqlTransaction = dbConnection.BeginTransaction();
+
                 DynamicParameters dynamicParameters = new DynamicParameters();
                 dynamicParameters.Add($"@{tableName}Id", entityId);
-                var rowsAffects = dbConnection.Execute($"Proc_Delete{tableName}", param: dynamicParameters, commandType: CommandType.StoredProcedure);
+                var rowsAffects = dbConnection.Execute($"Proc_Delete{tableName}", param: dynamicParameters, commandType: CommandType.StoredProcedure, transaction: sqlTransaction);
+                sqlTransaction.Commit();
                 return rowsAffects;
             }
         }
@@ -104,7 +108,10 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         {
             using (dbConnection = new MySqlConnection(connectionString))
             {
-                var rowAffects = dbConnection.Execute($"Proc_Insert{tableName}", param: entity, commandType: CommandType.StoredProcedure);
+                dbConnection.Open();
+                var sqlTransaction = dbConnection.BeginTransaction();
+                var rowAffects = dbConnection.Execute($"Proc_Insert{tableName}", param: entity, commandType: CommandType.StoredProcedure, transaction: sqlTransaction);
+                sqlTransaction.Commit();
                 return rowAffects;
             }
         }
@@ -119,7 +126,10 @@ namespace MISA.AMIS.INFRASTRUCTURE.Repositories
         {
             using (dbConnection = new MySqlConnection(connectionString))
             {
-                var rowAffects = dbConnection.Execute($"Proc_Update{tableName}", param: entity, commandType: CommandType.StoredProcedure);
+                dbConnection.Open();
+                var sqlTransaction = dbConnection.BeginTransaction();
+                var rowAffects = dbConnection.Execute($"Proc_Update{tableName}", param: entity, commandType: CommandType.StoredProcedure, transaction: sqlTransaction);
+                sqlTransaction.Commit();
                 return rowAffects;
             }
         }
