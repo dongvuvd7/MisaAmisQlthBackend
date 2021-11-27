@@ -204,6 +204,36 @@
   <data name="Search_input_invalid_characters" xml:space="preserve">
     <value>Nhập kí tự không hợp lệ, vui lòng thử lại</value>
   </data>
+  <data name="TeacherCode" xml:space="preserve">
+    <value>Số hiệu cán bộ</value>
+  </data>
+  <data name="TeacherEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="TeacherGroup" xml:space="preserve">
+    <value>Tổ chuyên môn</value>
+  </data>
+  <data name="TeacherName" xml:space="preserve">
+    <value>Họ và tên</value>
+  </data>
+  <data name="TeacherPhone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="TeacherQltb" xml:space="preserve">
+    <value>Đào tạo QLTB</value>
+  </data>
+  <data name="TeacherRoom" xml:space="preserve">
+    <value>Quản lý kho - phòng</value>
+  </data>
+  <data name="TeacherStatus" xml:space="preserve">
+    <value>Đang làm việc</value>
+  </data>
+  <data name="TeacherSTT" xml:space="preserve">
+    <value>Số thứ tự</value>
+  </data>
+  <data name="TeacherSubject" xml:space="preserve">
+    <value>Quản lý thiết bị môn</value>
+  </data>
   <data name="Teacher_Code" xml:space="preserve">
     <value>Mã cán bộ</value>
   </data>

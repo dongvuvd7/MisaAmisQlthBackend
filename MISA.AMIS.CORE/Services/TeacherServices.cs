@@ -80,15 +80,15 @@ namespace MISA.AMIS.CORE.Services
 
             // style cho excel.
             //gán giá trị cho từng ô[hàng, cột]
-            workSheet.Cells[3, 1].Value = "STT";
-            workSheet.Cells[3, 2].Value = "Số hiệu cán bộ";
-            workSheet.Cells[3, 3].Value = "Họ và tên";
-            workSheet.Cells[3, 4].Value = "Số điện thoại";
-            workSheet.Cells[3, 5].Value = "Tổ chuyên môn";
-            workSheet.Cells[3, 6].Value = "Quản lý thiết bị môn";
-            workSheet.Cells[3, 7].Value = "Quản lý kho - phòng";
-            workSheet.Cells[3, 8].Value = "Đào tạo QLTB";
-            workSheet.Cells[3, 9].Value = "Đang làm việc";
+            workSheet.Cells[3, 1].Value = Properties.Resources.TeacherSTT;
+            workSheet.Cells[3, 2].Value = Properties.Resources.TeacherCode;
+            workSheet.Cells[3, 3].Value = Properties.Resources.TeacherName;
+            workSheet.Cells[3, 4].Value = Properties.Resources.TeacherPhone;
+            workSheet.Cells[3, 5].Value = Properties.Resources.TeacherGroup;
+            workSheet.Cells[3, 6].Value = Properties.Resources.TeacherSubject;
+            workSheet.Cells[3, 7].Value = Properties.Resources.TeacherRoom;
+            workSheet.Cells[3, 8].Value = Properties.Resources.TeacherQltb;
+            workSheet.Cells[3, 9].Value = Properties.Resources.TeacherStatus;
 
             //style cho các ô từ A3 đến I3
             using (var range = workSheet.Cells["A3:I3"])
@@ -117,6 +117,10 @@ namespace MISA.AMIS.CORE.Services
                 //Format tình trạng công việc
                 String StatusWork = "";
                 if (list[i].TeacherStatus == 1) StatusWork = "x";
+                //Format các bộ môn
+                if (list[i].TeacherSubject != "" && list[i].TeacherSubject != null) list[i].TeacherSubject = list[i].TeacherSubject.Replace(",", ", ");
+                //Format các kho phòng
+                if (list[i].TeacherRoom != "" && list[i].TeacherRoom != null) list[i].TeacherRoom = list[i].TeacherRoom.Replace(",", ", ");
 
                 //bắt đầu từ dòng 4 nên (i+4)
                 workSheet.Cells[i + 4, 1].Value = i + 1; //STT

@@ -331,6 +331,96 @@ namespace MISA.AMIS.CORE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Số hiệu cán bộ.
+        /// </summary>
+        internal static string TeacherCode {
+            get {
+                return ResourceManager.GetString("TeacherCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string TeacherEmail {
+            get {
+                return ResourceManager.GetString("TeacherEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tổ chuyên môn.
+        /// </summary>
+        internal static string TeacherGroup {
+            get {
+                return ResourceManager.GetString("TeacherGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Họ và tên.
+        /// </summary>
+        internal static string TeacherName {
+            get {
+                return ResourceManager.GetString("TeacherName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại.
+        /// </summary>
+        internal static string TeacherPhone {
+            get {
+                return ResourceManager.GetString("TeacherPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đào tạo QLTB.
+        /// </summary>
+        internal static string TeacherQltb {
+            get {
+                return ResourceManager.GetString("TeacherQltb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quản lý kho - phòng.
+        /// </summary>
+        internal static string TeacherRoom {
+            get {
+                return ResourceManager.GetString("TeacherRoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đang làm việc.
+        /// </summary>
+        internal static string TeacherStatus {
+            get {
+                return ResourceManager.GetString("TeacherStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số thứ tự.
+        /// </summary>
+        internal static string TeacherSTT {
+            get {
+                return ResourceManager.GetString("TeacherSTT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quản lý thiết bị môn.
+        /// </summary>
+        internal static string TeacherSubject {
+            get {
+                return ResourceManager.GetString("TeacherSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Có lỗi xảy ra vui lòng liên hệ MISA!..
         /// </summary>
         internal static string User_msg {
