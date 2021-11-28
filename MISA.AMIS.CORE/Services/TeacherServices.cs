@@ -58,7 +58,7 @@ namespace MISA.AMIS.CORE.Services
             var workSheet = package.Workbook.Worksheets.Add("DANH SÁCH CÁN BỘ");
 
             // set độ rộng từng column
-            workSheet.Column(1).Width = 5; //STT
+            workSheet.Column(1).Width = 10; //STT
             workSheet.Column(2).Width = 15; //Mã
             workSheet.Column(3).Width = 30; //Tên
             workSheet.Column(4).Width = 20; //ĐT
