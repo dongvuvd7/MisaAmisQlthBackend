@@ -1,4 +1,5 @@
-bản này là bản copy bản backend vừa quay video vừa code để luyện tập
-bản này giống bản MisaAmisNAB
-bản này copy ra để làm thêm nhà cung cấp
-
+Đây là bản backend dùng cho 3 cái ui
+- ui misa amis (ui-misaamis-train): bản ui misa amis có cả employee cả ncc (nhưng chưa chuẩn convention, chưa tách file riêng)
+- ui misa amis (misa.amis.frontend): bản ui amis chỉ có employee chuẩn xịn nhất (đã tách file riêng, employee nhiều ngân hàng)
+- ui misa qlth (misa.qlth.frontend): bản ui misa qlth chuẩn, dùng để đánh giá fresher gđ1
+(update 31/12/2021)
